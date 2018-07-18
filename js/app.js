@@ -71,8 +71,8 @@ function endGame(Clicks, score) {
 	swal({
 		allowEscapeKey: false,
 		allowOutsideClick: false,
-		title: 'Congratulations! You Won!',
-		text: 'With ' + Clicks + ' Clicks and ' + score + ' Stars in ' + second + ' Seconds.\n Woooooo!',
+		title: 'Well Done!',
+		text: 'With ' + Clicks + ' Clicks and ' + score + ' Stars in ' + second + ' Seconds.',
 		type: 'success',
 		confirmButtonColor: '#02ccba',
 		confirmButtonText: 'Play again!'
@@ -88,13 +88,12 @@ $PlayAgain.bind('click', function () {
 	swal({
 		allowEscapeKey: false,
 		allowOutsideClick: false,
-		title: 'You need to be a surrender',
-		text: "Are you sure Mr. Noop",
+		title: 'You need to be a surrender',		
 		type: 'warning',
-		showCancelButton: true,
+		showCancelButton: false,
 		confirmButtonColor: '#02ccba',
 		cancelButtonColor: '#f95c3c',
-		confirmButtonText: 'Yes, Im noop',
+		confirmButtonText: 'Play Again',
 	}).then(function (isConfirm) {
 		if (isConfirm) {
 			initGame();
