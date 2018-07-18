@@ -13,4 +13,4 @@
 ![Screenshot](screenshot.png)
 
 
-## [Memory Game App](https://danrejsa.github.io/Memory-Game/)
+## Click [Memory Game App](https://danrejsa.github.io/Memory-Game/) to play the game.
