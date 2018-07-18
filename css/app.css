@@ -139,9 +139,16 @@ h1 {
   list-style: none;
   display: inline-block;
 }
-#score-panel .PlayAgain {
-  float: right;
-  cursor: pointer;
+
+.score-panel .panel-right {
+    float: right;
 }
+
+.score-panel #restart {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+
 
 
