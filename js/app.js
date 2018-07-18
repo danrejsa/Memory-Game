@@ -1,5 +1,3 @@
-
-
 let symbols = ['code', 'code', 'bug', 'bug', 'user-secret', 'user-secret', 'terminal', 'terminal', 'globe', 'globe', 'laptop', 'laptop', 'server', 'server', 'power-off', 'power-off'],
 	opened = [],
 	match = 0,
@@ -32,17 +30,7 @@ function shuffle(array) {
 	return array;
 }
 
-
-/*
- * set up the event listener for a card. If a card is clicked:
- *  - display the card's symbol (put this functionality in another function that you call from this one)
- *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
- *  - if the list already has another card, check to see if the two cards match
- *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
- *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
- *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
- */
+// Initial Game
 function initGame() {
 	var boxes = shuffle(symbols);
 	$Playground.empty();
@@ -78,13 +66,13 @@ function setRating(moves) {
 };
 
 
-
+// End Game
 function endGame(Clicks, score) {
 	swal({
 		allowEscapeKey: false,
 		allowOutsideClick: false,
-		title: 'Well Done!,
-		text: 'With ' + Clicks + ' Clicks and ' + score + ' Stars in ' + second + ' Seconds.',
+		title: 'Congratulations! You Won!',
+		text: 'With ' + Clicks + ' Clicks and ' + score + ' Stars in ' + second + ' Seconds.\n Woooooo!',
 		type: 'success',
 		confirmButtonColor: '#02ccba',
 		confirmButtonText: 'Play again!'
@@ -95,17 +83,18 @@ function endGame(Clicks, score) {
 	})
 }
 
-
+// PlayAgain Game
 $PlayAgain.bind('click', function () {
 	swal({
 		allowEscapeKey: false,
 		allowOutsideClick: false,
-		title: 'Game over',		
+		title: 'You need to be a surrender',
+		text: "Are you sure Mr. Noop",
 		type: 'warning',
-		showCancelButton: false,
+		showCancelButton: true,
 		confirmButtonColor: '#02ccba',
 		cancelButtonColor: '#f95c3c',
-		confirmButtonText: 'Try Again',
+		confirmButtonText: 'Yes, Im noop',
 	}).then(function (isConfirm) {
 		if (isConfirm) {
 			initGame();
@@ -174,5 +163,3 @@ function resetseconds(seconds) {
 }
 
 initGame();
-
-
