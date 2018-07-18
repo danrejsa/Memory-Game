@@ -33,8 +33,12 @@ h1 {
     font-weight: 300;
 }
 
+/*
+ * Styles for the deck of cards
+ */
+
 .Playground {
-  width: 660px;
+    width: 660px;
     min-height: 680px;
     background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
     padding: 32px;
@@ -98,7 +102,7 @@ h1 {
 .Playground .box.open {
   -webkit-transform: rotateY(0);
           transform: rotateY(0);
-  background: #1DE9B6;
+  background: #02b3e4;
   cursor: pointer;
 }
 .Playground .box.show {
@@ -108,17 +112,21 @@ h1 {
   -webkit-transform: rotateY(0);
           transform: rotateY(0);
   cursor: default;
-  background: #81C784;
+  background: #02ccba;
   font-size: 33px;
 }
 .Playground .box.notmatch {
   background: #BDBDBD;
 }
 
+/*
+ * Styles for the Score Panel
+ */
+
 #score-panel {
-  text-align: left;
-  width: 450px;
-  font-size: 30px;
+    text-align: left;
+    width: 345px;
+    margin-bottom: 10px;
   
 }
 #score-panel .stars {
