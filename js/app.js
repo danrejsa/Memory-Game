@@ -2,7 +2,7 @@ let symbols = ['code', 'code', 'bug', 'bug', 'user-secret', 'user-secret', 'term
 	opened = [],
 	match = 0,
 	Clicks = 0,
-	$deck = $('.deck'),
+	$Playground = $('.Playground'),
 	$scorePanel = $('#score-panel'),
 	$moveNum = $('.Clicks'),
 	$ratingStars = $('.fa-angellist'),
@@ -30,16 +30,16 @@ function shuffle(array) {
 	return array;
 }
 
-// Initial Game
+
 function initGame() {
 	var boxes = shuffle(symbols);
-	$deck.empty();
+	$Playground.empty();
 	match = 0;
 	Clicks = 0;
 	$moveNum.text('0');
 	$ratingStars.removeClass('fa-thumbs-down').addClass('fa-star');
 	for (var i = 0; i < boxes.length; i++) {
-		$deck.append($('<li class="box"><i class="fa fa-' + boxes[i] + '"></i></li>'))
+		$Playground.append($('<li class="box"><i class="fa fa-' + boxes[i] + '"></i></li>'))
 	}
 	addboxListener();
 
@@ -49,7 +49,7 @@ function initGame() {
 	initTime();
 };
 
-// Set Rating and final Score
+
 function setRating(moves) {
 	var rating = 3;
 	if (moves > rank3stars && moves < rank2stars) {
@@ -66,7 +66,7 @@ function setRating(moves) {
 };
 
 
-// End Game
+
 function endGame(Clicks, score) {
 	swal({
 		allowEscapeKey: false,
@@ -103,8 +103,8 @@ $PlayAgain.bind('click', function () {
 
 var addboxListener = function () {
 
-	// box flip
-	$deck.find('.box').bind('click', function () {
+	
+	$Playground.find('.box').bind('click', function () {
 		var $this = $(this)
 
 		if ($this.hasClass('show') || $this.hasClass('match')) { return true; }
@@ -113,21 +113,21 @@ var addboxListener = function () {
 		$this.addClass('open show');
 		opened.push(box);
 
-		// Compare with opened box
+		
 		if (opened.length > 1) {
 			if (box === opened[0]) {
-				$deck.find('.open').addClass('match animated infinite rubberBand');
+				$Playground.find('.open').addClass('match animated infinite rubberBand');
 				setTimeout(function () {
-					$deck.find('.match').removeClass('open show animated infinite rubberBand');
+					$Playground.find('.match').removeClass('open show animated infinite rubberBand');
 				}, delay);
 				match++;
 			} else {
-				$deck.find('.open').addClass('notmatch animated infinite wobble');
+				$Playground.find('.open').addClass('notmatch animated infinite wobble');
 				setTimeout(function () {
-					$deck.find('.open').removeClass('animated infinite wobble');
+					$Playground.find('.open').removeClass('animated infinite wobble');
 				}, delay / 1.5);
 				setTimeout(function () {
-					$deck.find('.open').removeClass('open show notmatch animated infinite wobble');
+					$Playground.find('.open').removeClass('open show notmatch animated infinite wobble');
 				}, delay);
 			}
 			opened = [];
