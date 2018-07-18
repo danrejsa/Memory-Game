@@ -140,15 +140,8 @@ h1 {
   display: inline-block;
 }
 
-.score-panel .panel-right {
-    float: right;
-}
-.score-panel #moves {
-    float: left;
-}
-
 .score-panel #restart {
-    margin-left: 10px;
+    float: right;
     cursor: pointer;
 }
 #score-panel .PlayAgain {
