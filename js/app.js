@@ -88,7 +88,7 @@ $PlayAgain.bind('click', function () {
 	swal({
 		allowEscapeKey: false,
 		allowOutsideClick: false,
-		title: 'You need to be a surrender',		
+		title: 'Game Over,		
 		type: 'warning',
 		showCancelButton: false,
 		confirmButtonColor: '#02ccba',
