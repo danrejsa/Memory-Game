@@ -1,39 +1,35 @@
-/*
- * Create a list that holds all of your cards
- */
-
-let decks = ['diamond', 'diamond', 'bolt',  'cube', 'cube', 'leaf', 'leaf', 'bicycle', 'bicycle', 'bomb', 'bomb', 'plane', 'plane', 'open show',  'anchor','anchor', ],
-opened = [],
-match = 0,
-Clicks = 0,
-$Playground = $('.Playground'),
-$scorePanel = $('#score-panel'),
-$moveNum = $('.Clicks'),
-$ratingStars = $('.fa-angellist'),
-$restart = $('.restart'),
-delay = 400,
-currentseconds,
-second = 0,
-$seconds = $('.seconds'),
-totalbox = decks.length / 2,
-rank3stars = 10,
-rank2stars = 16,
-rank1stars = 20;
 
 
+let symbols = ['code', 'code', 'bug', 'bug', 'user-secret', 'user-secret', 'terminal', 'terminal', 'globe', 'globe', 'laptop', 'laptop', 'server', 'server', 'power-off', 'power-off'],
+	opened = [],
+	match = 0,
+	Clicks = 0,
+	$Playground = $('.Playground'),
+	$scorePanel = $('#score-panel'),
+	$moveNum = $('.Clicks'),
+	$ratingStars = $('.fa-angellist'),
+	$PlayAgain = $('.PlayAgain'),
+	delay = 400,
+	currentseconds,
+	second = 0,
+	$seconds = $('.seconds'),
+	totalbox = symbols.length / 2,
+	rank3stars = 10,
+	rank2stars = 16,
+	rank1stars = 20;
 
 function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
+	var currentIndex = array.length, temporaryValue, randomIndex;
 
-    while (currentIndex !== 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-    }
+	while (0 !== currentIndex) {
+		randomIndex = Math.floor(Math.random() * currentIndex);
+		currentIndex -= 1;
+		temporaryValue = array[currentIndex];
+		array[currentIndex] = array[randomIndex];
+		array[randomIndex] = temporaryValue;
+	}
 
-    return array;
+	return array;
 }
 
 
@@ -48,7 +44,7 @@ function shuffle(array) {
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 function initGame() {
-	var boxes = shuffle(decks);
+	var boxes = shuffle(symbols);
 	$Playground.empty();
 	match = 0;
 	Clicks = 0;
@@ -87,8 +83,8 @@ function endGame(Clicks, score) {
 	swal({
 		allowEscapeKey: false,
 		allowOutsideClick: false,
-		title: 'Congratulations',
-		text: 'With ' + Clicks + ' Clicks and ' + score + ' Stars in ' + second + ' Seconds.',
+		title: 'Congratulations! You Won!',
+		text: 'With ' + Clicks + ' Clicks and ' + score + ' Stars in ' + second + ' Seconds.\n Woooooo!',
 		type: 'success',
 		confirmButtonColor: '#02ccba',
 		confirmButtonText: 'Play again!'
@@ -99,17 +95,18 @@ function endGame(Clicks, score) {
 	})
 }
 
-// Restart Game
-$restart.bind('click', function () {
+// PlayAgain Game
+$PlayAgain.bind('click', function () {
 	swal({
 		allowEscapeKey: false,
 		allowOutsideClick: false,
-		title: 'Game Over',		
+		title: 'You need to be a surrender',
+		text: "Are you sure Mr. Noop",
 		type: 'warning',
-		showCancelButton: false,
+		showCancelButton: true,
 		confirmButtonColor: '#02ccba',
 		cancelButtonColor: '#f95c3c',
-		confirmButtonText: 'Try Again',
+		confirmButtonText: 'Yes, Im noop',
 	}).then(function (isConfirm) {
 		if (isConfirm) {
 			initGame();
@@ -119,7 +116,7 @@ $restart.bind('click', function () {
 
 var addboxListener = function () {
 
-	
+	// box flip
 	$Playground.find('.box').bind('click', function () {
 		var $this = $(this)
 
@@ -129,7 +126,7 @@ var addboxListener = function () {
 		$this.addClass('open show');
 		opened.push(box);
 
-		
+		// Compare with opened box
 		if (opened.length > 1) {
 			if (box === opened[0]) {
 				$Playground.find('.open').addClass('match animated infinite rubberBand');
@@ -178,3 +175,5 @@ function resetseconds(seconds) {
 }
 
 initGame();
+
+
