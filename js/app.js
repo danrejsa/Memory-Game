@@ -2,7 +2,7 @@
  * Create a list that holds all of your cards
  */
 
-let symbols = ['diamond', 'diamond', 'bolt',  'cube', 'cube', 'leaf', 'leaf', 'bicycle', 'bicycle', 'bomb', 'bomb', 'plane', 'plane', 'open show',  'anchor','anchor', ],
+let decks = ['diamond', 'diamond', 'bolt',  'cube', 'cube', 'leaf', 'leaf', 'bicycle', 'bicycle', 'bomb', 'bomb', 'plane', 'plane', 'open show',  'anchor','anchor', ],
 opened = [],
 match = 0,
 Clicks = 0,
@@ -15,18 +15,13 @@ delay = 400,
 currentseconds,
 second = 0,
 $seconds = $('.seconds'),
-totalbox = symbols.length / 2,
+totalbox = decks.length / 2,
 rank3stars = 10,
 rank2stars = 16,
 rank1stars = 20;
-/*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
- */
 
-// Shuffle function from http://stackoverflow.com/a/2450976
+
+
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -53,7 +48,7 @@ function shuffle(array) {
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 function initGame() {
-	var boxes = shuffle(symbols);
+	var boxes = shuffle(decks);
 	$Playground.empty();
 	match = 0;
 	Clicks = 0;
@@ -124,7 +119,7 @@ $restart.bind('click', function () {
 
 var addboxListener = function () {
 
-	// box flip
+	
 	$Playground.find('.box').bind('click', function () {
 		var $this = $(this)
 
@@ -134,7 +129,7 @@ var addboxListener = function () {
 		$this.addClass('open show');
 		opened.push(box);
 
-		// Compare with opened box
+		
 		if (opened.length > 1) {
 			if (box === opened[0]) {
 				$Playground.find('.open').addClass('match animated infinite rubberBand');
