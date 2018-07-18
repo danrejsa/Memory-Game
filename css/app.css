@@ -140,10 +140,7 @@ h1 {
   display: inline-block;
 }
 
-.score-panel #restart {
-    float: right;
-    cursor: pointer;
-}
+
 #score-panel .PlayAgain {
   float: right;
   cursor: pointer;
