@@ -3,12 +3,14 @@
 ## How to play
 
 
-* Clicking on tiles will turn them over so that you can see what lies on them.
-* Your goal is to match two tiles of the same type at a time
-* Then try to match all pairs in as minimum moves as possible.
+* Click on each tile will to see the content beneath the tile.
+* Your target is to match two same tile at a time 
+* Ensure to match all pairs at the mininum number of moves.
+* Enjoy the game.
 
 
 ## ScreenShot
+![Screenshot](screenshot.png)
 
 
 ## [Memory Game App](https://danrejsa.github.io/Memory-Game/)
