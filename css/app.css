@@ -135,20 +135,4 @@ h1 {
   float: right;
   cursor: pointer;
 }
-*::-moz-selection {
-  background: transparent;
-}
-
-*::selection {
-  background: transparent;
-}
-
-.swal2-overlay {
-  background-color: white;
-}
-
-.font-color {
-  color: #004D40;
-}
-
 
