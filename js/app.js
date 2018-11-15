@@ -126,7 +126,7 @@ function endGame(){
     // show prompt
     let stars = $(".fa-star").length;
     vex.dialog.confirm({
-        message: `Good Job! You've completed in ${timeCount} seconds with ${stars}/3 star rating.
+        message: `Good Job! You finished in ${timeCount} seconds with ${stars}/3 star rating.`
         callback: function(value){
             if (value){
                 resetGame();
