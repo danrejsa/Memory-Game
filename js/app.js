@@ -160,7 +160,8 @@ $(document).ready(function(){
     initGame();
     $("#restart").click(resetGame);
     vex.defaultOptions.className = 'vex-theme-os';
-   
+    vex.dialog.buttons.YES.text = 'Play Again';
+    vex.dialog.buttons.NO.text = 'Cancel';
 });
 
 // load animateCss
