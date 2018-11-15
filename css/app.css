@@ -17,8 +17,8 @@ body {
 }
 
 body {
-    background: #ffffff url('../img/geometry2.png');   
-    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+    font-family: 'Coda', cursive;
 }
 
 .container {
@@ -29,7 +29,7 @@ body {
 }
 
 h1 {
-    font-family: "Times New Roman", Times, serif;
+    font-family: 'Open Sans', sans-serif;
     font-weight: 300;
 }
 
@@ -87,9 +87,8 @@ h1 {
 
 .score-panel {
     text-align: left;
-    width: 550px;
+    width: 345px;
     margin-bottom: 10px;
-    font-size: 16px;
 }
 
 .score-panel .stars {
@@ -104,37 +103,7 @@ h1 {
     display: inline-block;
 }
 
-.score-panel .panel-right {
+.score-panel .restart {
     float: right;
-}
-
-.score-panel #restart {
-    margin-left: 10px;
     cursor: pointer;
-}
-
-
-/** Responsive Optimizations **/
-
-@media only screen and (max-width: 700px) {
-	.score-panel {
-        width: 90%;
-    }
-
-    .deck {
-        width: 95%;
-        padding: 16px;
-        min-height: 100vw;
-    }
-
-    .deck .card {
-        width: 20vw;
-        height: 20vw;
-    }
-}
-
-@media only screen and (max-width: 1024px) {
-    .score-panel {
-        font-size: 20px;
-    }
 }
