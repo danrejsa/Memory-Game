@@ -126,7 +126,7 @@ function endGame(){
     // show prompt
     let stars = $(".fa-star").length;
     vex.dialog.confirm({
-        message: `Good Job! You finished in ${timeCount} seconds with ${stars}/3 star rating.`
+        message: `Congrats! You just won the game in ${timeCount} seconds with ${stars}/3 star rating. Do you want to play again?`,
         callback: function(value){
             if (value){
                 resetGame();
@@ -160,8 +160,8 @@ $(document).ready(function(){
     initGame();
     $("#restart").click(resetGame);
     vex.defaultOptions.className = 'vex-theme-os';
-    vex.dialog.buttons.YES.text = 'Play Again';
-    vex.dialog.buttons.NO.text = 'Cancel';
+    vex.dialog.buttons.YES.text = 'Yes!';
+    vex.dialog.buttons.NO.text = 'No';
 });
 
 // load animateCss
