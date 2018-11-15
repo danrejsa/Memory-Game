@@ -2,17 +2,16 @@
  * App's JavaScript code
  */
 
-const cardList = [ "fa-anchor", "fa-diamond", "fa-cube", "fa-paper-plane-o", "fa-bomb" "fa-bolt",  "fa-leaf", "fa-bicycle", ];
+const cardList = ["fa-diamond", "fa-paper-plane-o", "fa-anchor", "fa-bolt", "fa-cube", "fa-leaf", "fa-bicycle", "fa-bomb"];
+let started = false;
+let openCards = [];
+let moves = 0;
 let timeCount = 0;
 let solvedCount = 0;
-let openCards = [];
 let timerPtr;
-let started = false;
-let moves = 0;
 
 
-
-// This shuffles the cards reference from stack overFlow
+// Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     let currentIndex = array.length, temporaryValue, randomIndex;
     while (currentIndex !== 0) {
@@ -25,12 +24,12 @@ function shuffle(array) {
     return array;
 }
 
-
+// get class value from card DOM
 function getClassFromCard(card){
     return card[0].firstChild.className;
 }
 
-// To check open cards when the count is 2
+// check open cards when count = 2
 function checkOpenCards(){
     if (getClassFromCard(openCards[0]) === getClassFromCard(openCards[1])){
         solvedCount++;
@@ -127,7 +126,7 @@ function endGame(){
     // show prompt
     let stars = $(".fa-star").length;
     vex.dialog.confirm({
-        message: `Well done! You've completed in ${timeCount} seconds with ${stars}/3 star rating. 
+        message: `Congrats! You just won the game in ${timeCount} seconds with ${stars}/3 star rating. Do you want to play again?`,
         callback: function(value){
             if (value){
                 resetGame();
