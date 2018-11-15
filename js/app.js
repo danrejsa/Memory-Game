@@ -29,7 +29,7 @@ function getClassFromCard(card){
     return card[0].firstChild.className;
 }
 
-// check open cards when count = 2
+// This function checks open cards when count is 2
 function checkOpenCards(){
     if (getClassFromCard(openCards[0]) === getClassFromCard(openCards[1])){
         solvedCount++;
@@ -52,14 +52,14 @@ function checkOpenCards(){
     }
 }
 
-// starts the timer
+// This function starts the timer
 function startTimer(){
     timeCount += 1;
     $("#timer").html(timeCount);
     timerPtr = setTimeout(startTimer, 1000);
 }
 
-// increment move count
+// This function increments move count
 function incrementMove(){
     moves += 1;
     $("#moves").html(moves);
@@ -68,7 +68,7 @@ function incrementMove(){
     }
 }
 
-// event handler for when the card is clicked
+// This function is event handler when the card is clicked
 function cardClick(event){
     // check opened or matched card
     let classes = $(this).attr("class");
@@ -76,7 +76,7 @@ function cardClick(event){
         // both should be -1
         return;
     }
-    // start game if needed
+    // start game when required
     if (!started) {
         started = true;
         timeCount = 0;
@@ -87,23 +87,23 @@ function cardClick(event){
         $(this).toggleClass("open show");
         openCards.push($(this));
     }
-    // check if cards match
+    // This checks if cards match
     if (openCards.length === 2){
         checkOpenCards();
     }
 }
 
-// create individual card element
+// This function creates individual card element
 function createCard(cardClass){
     $("ul.deck").append(`<li class="card"><i class="fa ${cardClass}"></i></li>`);
 }
 
-// populate cards in DOM
+// This function populates card in DOM
 function populateCards(){
     shuffle(cardList.concat(cardList)).forEach(createCard);
 }
 
-// reset game
+// This function resets the game
 function resetGame(){
     $("ul.deck").html("");
     $(".stars").html("");
@@ -119,14 +119,14 @@ function resetGame(){
     initGame();
 }
 
-// runs when game has been won
+//This function runs when game has been won
 function endGame(){
     // stop timer
     clearTimeout(timerPtr);
     // show prompt
     let stars = $(".fa-star").length;
     vex.dialog.confirm({
-        message: `Good Job! You finished in ${timeCount} seconds with ${stars}/3 star rating`,
+        message: `Good Job! You finished in ${timeCount} seconds with ${stars} star rating`,
         callback: function(value){
             if (value){
                 resetGame();
@@ -135,14 +135,14 @@ function endGame(){
     });
 }
 
-// initialize stars display
+// This function initializes stars display
 function initStars(){
     for (let i=0; i<3; i++){
         $(".stars").append(`<li><i class="fa fa-star"></i></li>`);
     }
 }
 
-// reduce star rating
+//This function reduce star rating
 function reduceStar(){
     let stars = $(".fa-star");
     $(stars[stars.length-1]).toggleClass("fa-star fa-star-o");
@@ -164,8 +164,8 @@ $(document).ready(function(){
     vex.dialog.buttons.NO.text = 'Cancel';
 });
 
-// load animateCss
-// taken from https://github.com/daneden/animate.css/#usage
+// AnimateCss
+// Reference from https://github.com/daneden/animate.css/#usage
 $.fn.extend({
     animateCss: function (animationName, callback) {
         var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
