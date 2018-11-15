@@ -2,16 +2,16 @@
  * App's JavaScript code
  */
 
-const cardList = ["fa-diamond", "fa-paper-plane-o", "fa-anchor", "fa-bolt", "fa-cube", "fa-leaf", "fa-bicycle", "fa-bomb"];
-let started = false;
+const cardList = [ "fa-leaf", "fa-paper-plane-o",  "fa-bolt", "fa-cube",  "fa-diamond", "fa-bicycle","fa-anchor",  "fa-bomb"];
 let openCards = [];
+let started = false;
+let solvedCount = 0;
 let moves = 0;
 let timeCount = 0;
-let solvedCount = 0;
 let timerPtr;
 
 
-// Shuffle function from http://stackoverflow.com/a/2450976
+// This shuffles the cards reference from stackover Flow
 function shuffle(array) {
     let currentIndex = array.length, temporaryValue, randomIndex;
     while (currentIndex !== 0) {
