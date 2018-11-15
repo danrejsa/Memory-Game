@@ -33,8 +33,12 @@ h1 {
     font-weight: 300;
 }
 
-.Playground {
-  width: 660px;
+/*
+ * Styles for the deck of cards
+ */
+
+.deck {
+    width: 660px;
     min-height: 680px;
     background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
     padding: 32px;
@@ -46,8 +50,9 @@ h1 {
     align-items: center;
     margin: 0 0 3em;
 }
-.Playground .box {
-   height: 125px;
+
+.deck .card {
+    height: 125px;
     width: 125px;
     background: #2e3d49;
     font-size: 0;
@@ -60,79 +65,76 @@ h1 {
     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
 }
 
-
-@media only screen and (max-width: 800px){
-  .Playground .box{
-    width: 75px;
-    height: 75px;
-    line-height: 75px;
-  }
-
-  .Playground {
-    width: 390px;
-  }
+.deck .card.open {
+    transform: rotateY(0);
+    background: #02b3e4;
+    cursor: default;
 }
 
-@media only screen and (max-width: 450px){
-  .Playground .box{
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
-    margin: 0 10px 10px 0 !important;
-  }
-
-  .Playground {
-    width: 240px;
-  }
+.deck .card.show {
+    font-size: 33px;
 }
 
-.Playground .box:nth-child(4n) {
-  margin: 0 0 15px 0;
-}
-.Playground .box:nth-child(n+13) {
-  margin: 0 30px 0 0;
-}
-.Playground .box:nth-child(n+13):nth-child(4n) {
-  margin: 0;
-}
-.Playground .box.open {
-  -webkit-transform: rotateY(0);
-          transform: rotateY(0);
-  background: #1DE9B6;
-  cursor: pointer;
-}
-.Playground .box.show {
-  font-size: 33px;
-}
-.Playground .box.match {
-  -webkit-transform: rotateY(0);
-          transform: rotateY(0);
-  cursor: default;
-  background: #81C784;
-  font-size: 33px;
-}
-.Playground .box.notmatch {
-  background: #BDBDBD;
+.deck .card.match {
+    cursor: default;
+    background: #02ccba;
+    font-size: 33px;
 }
 
-#score-panel {
-  text-align: left;
-  width: 450px;
-  font-size: 30px;
-  
-}
-#score-panel .stars {
-  margin: 0;
-  padding: 0;
-  display: inline-block;
-  margin: 0 5px 0 0;
-}
-#score-panel .stars li {
-  list-style: none;
-  display: inline-block;
-}
-#score-panel .PlayAgain {
-  float: right;
-  cursor: pointer;
+/*
+ * Styles for the Score Panel
+ */
+
+.score-panel {
+    text-align: left;
+    width: 550px;
+    margin-bottom: 10px;
+    font-size: 16px;
 }
 
+.score-panel .stars {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin: 0 5px 0 0;
+}
+
+.score-panel .stars li {
+    list-style: none;
+    display: inline-block;
+}
+
+.score-panel .panel-right {
+    float: right;
+}
+
+.score-panel #restart {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+
+/** Responsive Optimizations **/
+
+@media only screen and (max-width: 700px) {
+	.score-panel {
+        width: 90%;
+    }
+
+    .deck {
+        width: 95%;
+        padding: 16px;
+        min-height: 100vw;
+    }
+
+    .deck .card {
+        width: 20vw;
+        height: 20vw;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .score-panel {
+        font-size: 20px;
+    }
+}
