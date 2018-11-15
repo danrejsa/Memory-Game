@@ -15,7 +15,7 @@ The game board consists of sixteen "cards" arranged in a grid. The deck is made 
 
 
 ## ScreenShot
-![Screenshot](screenshot.png)
+![Screenshot](screen.png)
 
 
 
